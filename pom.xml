@@ -8,6 +8,20 @@
 	<version>${project.version}</version>
 	<packaging>pom</packaging>
 
+	<developers>
+		<developer>
+			<name>xuegang liu</name>
+			<email>lxghoney@163.com</email>
+		</developer>
+	</developers>
+
+	<!--<scm>-->
+		<!--<connection>https://github.com/xuegangliu/smallServer</connection>-->
+		<!--<developerConnection>xuegangliu</developerConnection>-->
+		<!--<tag>1.0</tag>-->
+		<!--<url>https://github.com/xuegangliu/smallServer</url>-->
+	<!--</scm>-->
+
 	<name>smallServer</name>
 	<description>smallServer Root</description>
 
