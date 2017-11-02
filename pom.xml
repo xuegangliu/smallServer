@@ -23,8 +23,8 @@
 		<module>dbcommon</module>
 		<module>fileinterface</module>
 		<module>fileservice</module>
-		<module>neo4j</module>
-		<module>fileserver</module>
+		<!--<module>neo4j</module>-->
+		<!--<module>fileserver</module>-->
 	</modules>
 
 	<properties>
