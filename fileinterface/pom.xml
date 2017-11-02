@@ -5,7 +5,7 @@
 
 	<groupId>com.asiainfo</groupId>
 	<artifactId>file-interface</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${project.version}</version>
 	<packaging>jar</packaging>
 
 	<name>file-interface</name>
@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>com.asiainfo</groupId>
 		<artifactId>smallserver</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${project.version}</version>
 		<relativePath>../</relativePath> <!-- lookup parent from repository -->
 	</parent>
 
@@ -28,12 +28,12 @@
 		<dependency>
 			<groupId>com.asiainfo</groupId>
 			<artifactId>common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.asiainfo</groupId>
 			<artifactId>db-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </project>
