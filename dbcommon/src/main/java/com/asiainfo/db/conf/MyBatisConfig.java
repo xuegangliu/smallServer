@@ -1,5 +1,7 @@
 package com.asiainfo.db.conf;
 
+import com.asiainfo.db.interceptor.SqlStatementInterceptor;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -42,7 +44,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
 //        pageHelper.setProperties(props);
         // sql执行时间拦截器
 //		bean.setPlugins(new Interceptor[] { pageHelper ,new SqlCostInterceptor()});
-//		bean.setPlugins(new Interceptor[] { pageHelper ,new SqlStatementInterceptor()});
+		bean.setPlugins(new Interceptor[] {new SqlStatementInterceptor()});
 		ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 		
         try {
