@@ -37,6 +37,7 @@
 		<module>dbcommon</module>
 		<module>fileinterface</module>
 		<module>fileservice</module>
+		<module>taskservice</module>
 		<!--<module>neo4j</module>-->
 		<!--<module>fileserver</module>-->
 	</modules>
