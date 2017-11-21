@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
 @MapperScan("com.asiainfo.db.mapper")
 @EntityScan("com.asiainfo.db.domain")
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes =DbCommonApplicationTests.class )
 public class DbCommonApplicationTests {
 
 	@Autowired
@@ -30,5 +31,7 @@ public class DbCommonApplicationTests {
 		System.out.println(lists);
 		Assert.assertNotNull(lists);
 	}
+
+
 
 }

@@ -38,6 +38,8 @@
 		<module>fileinterface</module>
 		<module>fileservice</module>
 		<module>taskservice</module>
+		<module>userinterface</module>
+		<module>userservice</module>
 		<!--<module>neo4j</module>-->
 		<!--<module>fileserver</module>-->
 	</modules>
