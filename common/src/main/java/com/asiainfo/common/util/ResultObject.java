@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by chenqi on 2016/12/5.
+ *  * Created by xuegangliu on 2017/11/2.
  */
 public class ResultObject extends Result implements Serializable{
 
