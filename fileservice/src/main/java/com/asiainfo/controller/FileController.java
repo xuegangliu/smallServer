@@ -1,6 +1,6 @@
 package com.asiainfo.controller;
 
-import com.asiainfo.common.util.ResultObject;
+import com.asiainfo.common.bean.ResultObject;
 import com.asiainfo.db.domain.FileCenter;
 import com.asiainfo.fileinterface.FileCenterService;
 import com.asiainfo.fileinterface.vo.UploadFileVO;

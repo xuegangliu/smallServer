@@ -117,7 +117,7 @@ public class FileCenterServiceImpl implements FileCenterService {
 
     private FileCenter getFileCenterByFile1(long len,String contentType,String fileName) {
         FileCenter fc = new FileCenter();
-        fc.setId(IdGenerator.generator());
+        fc.setId( IdGenerator.generator());
         fc.setFileId(createFileId());
         fc.setContentType(contentType);
         if(StringUtils.isNotBlank(fileName)){

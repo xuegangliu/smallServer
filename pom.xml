@@ -5,7 +5,7 @@
 
 	<groupId>com.asiainfo</groupId>
 	<artifactId>smallserver</artifactId>
-	<version>${project.version}</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<developers>
@@ -38,8 +38,7 @@
 		<module>fileinterface</module>
 		<module>fileservice</module>
 		<module>taskservice</module>
-		<module>userinterface</module>
-		<module>userservice</module>
+		<module>web</module>
 		<!--<module>neo4j</module>-->
 		<!--<module>fileserver</module>-->
 	</modules>
@@ -48,8 +47,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<project.version>1.0.0</project.version>
-		<!--<project.version>0.0.1-SNAPSHOT</project.version>-->
+		<project.version>0.0.1-SNAPSHOT</project.version>
 	</properties>
 
 	<dependencies>
