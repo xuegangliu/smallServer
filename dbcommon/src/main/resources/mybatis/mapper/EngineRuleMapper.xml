@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asiainfo.db.mapper.EngineRuleMapper">
+  <resultMap id="BaseResultMap" type="com.asiainfo.db.domain.EngineRule">
+    <constructor>
+      <arg column="ENGINE_ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ENGINE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENGINE_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENGINE_FILE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENGINE_EXPRESSION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENGINE_VALUE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENGINE_DESCRIPTION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ERR_INFO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENGINE_WAY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ENGINE_SCENARIO" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSINESS_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="UPDATE_DATE" javaType="java.util.Date" jdbcType="DATE" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ENGINE_ID, ENGINE_NAME, ENGINE_CODE, ENGINE_FILE, ENGINE_EXPRESSION, ENGINE_VALUE, 
+    ENGINE_DESCRIPTION, ERR_INFO, ENGINE_WAY, ENGINE_SCENARIO, BUSINESS_CODE, CREATE_DATE, 
+    UPDATE_DATE
+  </sql>
+  <select id="selectByExample" parameterType="com.asiainfo.db.domain.EngineRuleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ENGINE_RULE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.asiainfo.db.domain.EngineRuleExample">
+    delete from ENGINE_RULE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.db.domain.EngineRule">
+    insert into ENGINE_RULE (ENGINE_ID, ENGINE_NAME, ENGINE_CODE, 
+      ENGINE_FILE, ENGINE_EXPRESSION, ENGINE_VALUE, 
+      ENGINE_DESCRIPTION, ERR_INFO, ENGINE_WAY, 
+      ENGINE_SCENARIO, BUSINESS_CODE, CREATE_DATE, 
+      UPDATE_DATE)
+    values (#{engineId,jdbcType=DECIMAL}, #{engineName,jdbcType=VARCHAR}, #{engineCode,jdbcType=VARCHAR}, 
+      #{engineFile,jdbcType=VARCHAR}, #{engineExpression,jdbcType=VARCHAR}, #{engineValue,jdbcType=VARCHAR}, 
+      #{engineDescription,jdbcType=VARCHAR}, #{errInfo,jdbcType=VARCHAR}, #{engineWay,jdbcType=VARCHAR}, 
+      #{engineScenario,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{updateDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.db.domain.EngineRule">
+    insert into ENGINE_RULE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="engineId != null">
+        ENGINE_ID,
+      </if>
+      <if test="engineName != null">
+        ENGINE_NAME,
+      </if>
+      <if test="engineCode != null">
+        ENGINE_CODE,
+      </if>
+      <if test="engineFile != null">
+        ENGINE_FILE,
+      </if>
+      <if test="engineExpression != null">
+        ENGINE_EXPRESSION,
+      </if>
+      <if test="engineValue != null">
+        ENGINE_VALUE,
+      </if>
+      <if test="engineDescription != null">
+        ENGINE_DESCRIPTION,
+      </if>
+      <if test="errInfo != null">
+        ERR_INFO,
+      </if>
+      <if test="engineWay != null">
+        ENGINE_WAY,
+      </if>
+      <if test="engineScenario != null">
+        ENGINE_SCENARIO,
+      </if>
+      <if test="businessCode != null">
+        BUSINESS_CODE,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="engineId != null">
+        #{engineId,jdbcType=DECIMAL},
+      </if>
+      <if test="engineName != null">
+        #{engineName,jdbcType=VARCHAR},
+      </if>
+      <if test="engineCode != null">
+        #{engineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="engineFile != null">
+        #{engineFile,jdbcType=VARCHAR},
+      </if>
+      <if test="engineExpression != null">
+        #{engineExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="engineValue != null">
+        #{engineValue,jdbcType=VARCHAR},
+      </if>
+      <if test="engineDescription != null">
+        #{engineDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="errInfo != null">
+        #{errInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="engineWay != null">
+        #{engineWay,jdbcType=VARCHAR},
+      </if>
+      <if test="engineScenario != null">
+        #{engineScenario,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCode != null">
+        #{businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.asiainfo.db.domain.EngineRuleExample" resultType="java.lang.Long">
+    select count(*) from ENGINE_RULE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ENGINE_RULE
+    <set>
+      <if test="record.engineId != null">
+        ENGINE_ID = #{record.engineId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.engineName != null">
+        ENGINE_NAME = #{record.engineName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineCode != null">
+        ENGINE_CODE = #{record.engineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineFile != null">
+        ENGINE_FILE = #{record.engineFile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineExpression != null">
+        ENGINE_EXPRESSION = #{record.engineExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineValue != null">
+        ENGINE_VALUE = #{record.engineValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineDescription != null">
+        ENGINE_DESCRIPTION = #{record.engineDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.errInfo != null">
+        ERR_INFO = #{record.errInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineWay != null">
+        ENGINE_WAY = #{record.engineWay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineScenario != null">
+        ENGINE_SCENARIO = #{record.engineScenario,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessCode != null">
+        BUSINESS_CODE = #{record.businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        CREATE_DATE = #{record.createDate,jdbcType=DATE},
+      </if>
+      <if test="record.updateDate != null">
+        UPDATE_DATE = #{record.updateDate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ENGINE_RULE
+    set ENGINE_ID = #{record.engineId,jdbcType=DECIMAL},
+      ENGINE_NAME = #{record.engineName,jdbcType=VARCHAR},
+      ENGINE_CODE = #{record.engineCode,jdbcType=VARCHAR},
+      ENGINE_FILE = #{record.engineFile,jdbcType=VARCHAR},
+      ENGINE_EXPRESSION = #{record.engineExpression,jdbcType=VARCHAR},
+      ENGINE_VALUE = #{record.engineValue,jdbcType=VARCHAR},
+      ENGINE_DESCRIPTION = #{record.engineDescription,jdbcType=VARCHAR},
+      ERR_INFO = #{record.errInfo,jdbcType=VARCHAR},
+      ENGINE_WAY = #{record.engineWay,jdbcType=VARCHAR},
+      ENGINE_SCENARIO = #{record.engineScenario,jdbcType=VARCHAR},
+      BUSINESS_CODE = #{record.businessCode,jdbcType=VARCHAR},
+      CREATE_DATE = #{record.createDate,jdbcType=DATE},
+      UPDATE_DATE = #{record.updateDate,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

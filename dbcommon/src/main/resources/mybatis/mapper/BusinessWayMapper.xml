@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asiainfo.db.mapper.BusinessWayMapper">
+  <resultMap id="BaseResultMap" type="com.asiainfo.db.domain.BusinessWay">
+    <constructor>
+      <arg column="BUSINESS_ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="BUSINESS_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BUSINESS_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="UPDATE_DATE" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="BUSINESS_DESCRIPTION" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    BUSINESS_ID, BUSINESS_NAME, BUSINESS_CODE, CREATE_DATE, UPDATE_DATE, BUSINESS_DESCRIPTION
+  </sql>
+  <select id="selectByExample" parameterType="com.asiainfo.db.domain.BusinessWayExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BUSINESS_WAY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.asiainfo.db.domain.BusinessWayExample">
+    delete from BUSINESS_WAY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.db.domain.BusinessWay">
+    insert into BUSINESS_WAY (BUSINESS_ID, BUSINESS_NAME, BUSINESS_CODE, 
+      CREATE_DATE, UPDATE_DATE, BUSINESS_DESCRIPTION
+      )
+    values (#{businessId,jdbcType=DECIMAL}, #{businessName,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=DATE}, #{updateDate,jdbcType=DATE}, #{businessDescription,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.db.domain.BusinessWay">
+    insert into BUSINESS_WAY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="businessId != null">
+        BUSINESS_ID,
+      </if>
+      <if test="businessName != null">
+        BUSINESS_NAME,
+      </if>
+      <if test="businessCode != null">
+        BUSINESS_CODE,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="businessDescription != null">
+        BUSINESS_DESCRIPTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="businessId != null">
+        #{businessId,jdbcType=DECIMAL},
+      </if>
+      <if test="businessName != null">
+        #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCode != null">
+        #{businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="businessDescription != null">
+        #{businessDescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.asiainfo.db.domain.BusinessWayExample" resultType="java.lang.Long">
+    select count(*) from BUSINESS_WAY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update BUSINESS_WAY
+    <set>
+      <if test="record.businessId != null">
+        BUSINESS_ID = #{record.businessId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.businessName != null">
+        BUSINESS_NAME = #{record.businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessCode != null">
+        BUSINESS_CODE = #{record.businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        CREATE_DATE = #{record.createDate,jdbcType=DATE},
+      </if>
+      <if test="record.updateDate != null">
+        UPDATE_DATE = #{record.updateDate,jdbcType=DATE},
+      </if>
+      <if test="record.businessDescription != null">
+        BUSINESS_DESCRIPTION = #{record.businessDescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update BUSINESS_WAY
+    set BUSINESS_ID = #{record.businessId,jdbcType=DECIMAL},
+      BUSINESS_NAME = #{record.businessName,jdbcType=VARCHAR},
+      BUSINESS_CODE = #{record.businessCode,jdbcType=VARCHAR},
+      CREATE_DATE = #{record.createDate,jdbcType=DATE},
+      UPDATE_DATE = #{record.updateDate,jdbcType=DATE},
+      BUSINESS_DESCRIPTION = #{record.businessDescription,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
