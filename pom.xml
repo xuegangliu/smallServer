@@ -15,12 +15,12 @@
 		</developer>
 	</developers>
 
-	<!--<scm>-->
-		<!--<connection>https://github.com/xuegangliu/smallServer</connection>-->
-		<!--<developerConnection>xuegangliu</developerConnection>-->
-		<!--<tag>1.0</tag>-->
-		<!--<url>https://github.com/xuegangliu/smallServer</url>-->
-	<!--</scm>-->
+	<!--<scm>
+		<connection>https://github.com/xuegangliu/smallServer</connection>
+		<developerConnection>xuegangliu</developerConnection>
+		<tag>1.0</tag>
+		<url>https://github.com/xuegangliu/smallServer</url>
+	</scm>-->
 
 	<name>smallServer</name>
 	<description>smallServer Root</description>
@@ -29,7 +29,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.8.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<modules>
@@ -63,14 +63,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-autoconfigure</artifactId>
 		</dependency>
 		<dependency>
@@ -90,5 +82,17 @@
 		</dependency>
 	</dependencies>
 
-
+	<build>
+		<plugins>
+			<!-- 过滤test -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Created by xuegangliu on 2017/11/2.
  */
-public class Result implements Serializable{
+public class ResultBase implements Serializable{
 
     public int code;
     public String message;
@@ -28,12 +28,12 @@ public class Result implements Serializable{
         this.message = message;
     }
 
-    public Result() {
+    public ResultBase() {
         this.code = ErrorCode.OK.getCode();
         this.message = ErrorCode.OK.getMessage();
     }
 
-    public Result(int code, String message) {
+    public ResultBase(int code, String message) {
         this.code = code;
         this.message = message;
     }

@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  *  * Created by xuegangliu on 2017/11/2.
  */
-public class ResultObject extends Result implements Serializable{
+public class ResultObject extends ResultBase implements Serializable{
 
     public Object data;
 

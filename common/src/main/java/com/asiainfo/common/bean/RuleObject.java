@@ -1,8 +1,6 @@
 package com.asiainfo.common.bean;
 
-
-
-import com.asiainfo.common.constant.ErrorCode;
+import com.asiainfo.common.constant.RuleCode;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
@@ -16,7 +14,7 @@ import java.util.Map;
 /**
  *  * Created by xuegangliu on 2017/11/2.
  */
-public class RequestObject extends ResultBase implements Serializable{
+public class RuleObject extends RuleBase implements Serializable{
 
     public Object data;
 
@@ -28,23 +26,21 @@ public class RequestObject extends ResultBase implements Serializable{
         this.data = data;
     }
 
-    public RequestObject() {
+    public RuleObject() {
         super();
     }
 
-    public RequestObject(Object data) {
+    public RuleObject(Object data) {
         this();
         this.data = data;
     }
 
-
-    public static RequestObject returnResultObject(int code) {
-        String value = ErrorCode.getByCode(code).getMessage();
-        return new RequestObject(code, value);
+    public static RuleObject returnResultObject(boolean code) {
+        String value = RuleCode.getByCode(code).getMessage();
+        return new RuleObject(code, value);
     }
 
-
-    public RequestObject(Enum<?>[] ens) {
+    public RuleObject(Enum<?>[] ens) {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         for (Enum<?> en : ens) {
             Map<String, Object> map = enumToMap(en);
@@ -52,7 +48,6 @@ public class RequestObject extends ResultBase implements Serializable{
         }
         data = list;
     }
-
 
     private Map<String, Object> enumToMap(Enum<?> en) {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -73,16 +68,16 @@ public class RequestObject extends ResultBase implements Serializable{
     }
 
 
-    public RequestObject(int code, Exception e) {
+    public RuleObject(boolean code, Exception e) {
         super(code, e.toString());
     }
 
 
-    public RequestObject(int code, String message) {
+    public RuleObject(boolean code, String message) {
         super(code, message);
     }
 
-    public RequestObject(int code, String message, Object data) {
+    public RuleObject(boolean code, String message, Object data) {
         this.code = code;
         this.message = message;
         this.data = data;
