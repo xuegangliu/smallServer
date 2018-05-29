@@ -3,6 +3,7 @@ package com.asiainfo.web.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.asiainfo.common.bean.RequestObject;
 import com.asiainfo.common.bean.RuleObject;
+import com.asiainfo.common.constant.RuleCode;
 import com.asiainfo.db.domain.EngineRule;
 import com.asiainfo.db.domain.EngineRuleExample;
 import com.asiainfo.db.mapper.BusinessWayMapper;
@@ -50,6 +51,7 @@ public class BusinessRuleServiceImpl implements BusinessRuleService {
                 if(err!=null){
                     ruleObject.setCode(false);
                     ruleObject.setData(err);
+                    ruleObject.setMessage(RuleCode.NO.getMessage());
                     return ruleObject;
                 }
             }
