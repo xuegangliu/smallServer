@@ -15,9 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Configuration
 @SpringBootApplication
 public class TaskServiceApplication {
-	private static final Logger logger = LoggerFactory.getLogger(TaskServiceApplication.class);
 	public static void main(String[] args) {
 		SpringApplication.run(TaskServiceApplication.class, args);
-		logger.info("oops");
 	}
 }
