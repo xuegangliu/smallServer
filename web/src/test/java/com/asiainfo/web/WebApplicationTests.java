@@ -27,8 +27,8 @@ public class WebApplicationTests {
 	public void businessRuleServiceTest(){
 		RequestObject requestObject = new RequestObject();
 		JSONObject data = new JSONObject();
-		data.put("business_code","cancel_request1");
-		data.put("requestId","1");
+		data.put("business_code","cancel_request2");
+		data.put("requestId","3");
 		requestObject.setData(data);
 		RuleObject ruleObject=businessRuleService.checkBusinessRule(requestObject);
 		System.out.println( JSONObject.toJSON(ruleObject));

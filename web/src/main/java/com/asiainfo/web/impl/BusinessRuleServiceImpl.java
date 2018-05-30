@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * @author: xuegangliu
@@ -63,11 +64,31 @@ public class BusinessRuleServiceImpl implements BusinessRuleService {
     }
 
     public String exprData(JSONObject data,EngineRule engineRule,String expr){
+        String filed = engineRule.getEngineFile();
+        String value = engineRule.getEngineValue();
         boolean flag=false;
-        if(expr.equals("eq")){
-            if(data.containsKey(engineRule.getEngineFile())){
-                flag = data.get(engineRule.getEngineFile()).toString().equals(engineRule.getEngineValue())?true:false;
+        if(expr.equals("eq")){ // 等于
+            if(data.containsKey(filed)){
+                flag = data.get(filed).toString().equals(value)?true:false;
             }
+        }else if(expr.equals("!eq")){ //不等于
+            if(data.containsKey(filed)){
+                flag = data.get(filed).toString().equals(value)?false:true;
+            }
+        }else if(expr.equals("in")){  // 在
+            if(data.containsKey(filed)){
+                flag = value.contains(data.get(filed).toString())?true:false;
+            }
+        }else if(expr.equals("!in")){ // 不在
+            if(data.containsKey(filed)){
+                flag = value.contains(data.get(filed).toString())?false:true;
+            }
+        }else if(expr.equals("regr")){ // 正则验证
+            if(data.containsKey(filed)){
+                flag = Pattern.matches(value, data.get(filed).toString());
+            }
+        }else if(expr.equals("sql")){ // sql
+            flag=true;
         }else{
             flag=true;
         }

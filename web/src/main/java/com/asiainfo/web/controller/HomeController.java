@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version: v1.0
  */
 @RestController
-public class HomeController {
+public class HomeController extends BaseController<RequestObject>{
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @Autowired
@@ -31,6 +31,7 @@ public class HomeController {
 
     @RequestMapping(name = "/ruleTest",method = RequestMethod.POST)
     public String ruleTest(RequestObject requestObject){
+        logger.info(WEB_NAME);
         logger.info("规则测试 传入参数"+ JSON.toJSON(requestObject));
         RuleObject ruleObject = businessRuleService.checkBusinessRule(requestObject);
 

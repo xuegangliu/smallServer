@@ -2,6 +2,8 @@ package com.asiainfo.web.service;
 
 import com.asiainfo.common.bean.RequestObject;
 import com.asiainfo.common.bean.RuleObject;
+import com.asiainfo.db.domain.BusinessWay;
+import com.asiainfo.db.domain.EngineRule;
 
 /**
  * @author: xuegangliu
@@ -9,7 +11,7 @@ import com.asiainfo.common.bean.RuleObject;
  * @DES:
  * @version: v1.0
  */
-public interface BusinessRuleService {
+public interface BusinessRuleService extends BaseService<BusinessWay,EngineRule> {
 
     /**
      * 业务规则校验
