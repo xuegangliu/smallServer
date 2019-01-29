@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.asiainfo.db.mapper.EngineRuleMapper">
-  <resultMap id="BaseResultMap" type="com.asiainfo.db.domain.EngineRule">
+<mapper namespace="com.lxg.db.mapper.EngineRuleMapper">
+  <resultMap id="BaseResultMap" type="com.lxg.db.domain.EngineRule">
     <constructor>
       <arg column="ENGINE_ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
       <arg column="ENGINE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -81,7 +81,7 @@
     ENGINE_DESCRIPTION, ERR_INFO, ENGINE_WAY, ENGINE_SCENARIO, BUSINESS_CODE, CREATE_DATE, 
     UPDATE_DATE
   </sql>
-  <select id="selectByExample" parameterType="com.asiainfo.db.domain.EngineRuleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lxg.db.domain.EngineRuleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -95,13 +95,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.asiainfo.db.domain.EngineRuleExample">
+  <delete id="deleteByExample" parameterType="com.lxg.db.domain.EngineRuleExample">
     delete from ENGINE_RULE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.asiainfo.db.domain.EngineRule">
+  <insert id="insert" parameterType="com.lxg.db.domain.EngineRule">
     insert into ENGINE_RULE (ENGINE_ID, ENGINE_NAME, ENGINE_CODE, 
       ENGINE_FILE, ENGINE_EXPRESSION, ENGINE_VALUE, 
       ENGINE_DESCRIPTION, ERR_INFO, ENGINE_WAY, 
@@ -113,7 +113,7 @@
       #{engineScenario,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
       #{updateDate,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.asiainfo.db.domain.EngineRule">
+  <insert id="insertSelective" parameterType="com.lxg.db.domain.EngineRule">
     insert into ENGINE_RULE
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="engineId != null">
@@ -198,7 +198,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.asiainfo.db.domain.EngineRuleExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lxg.db.domain.EngineRuleExample" resultType="java.lang.Long">
     select count(*) from ENGINE_RULE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

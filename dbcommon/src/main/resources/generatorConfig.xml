@@ -11,11 +11,11 @@
     <classPathEntry location="${jdbc.driverLocation}"/>-->
 
     <context id="default" targetRuntime="MyBatis3">
-		<!--<plugin type="com.asiainfo.generator.plugin.PaginationPlugin" />-->
+		<!--<plugin type="PaginationPlugin" />-->
 
         <!-- 这里的type里写的是你的实现类的类全路径 -->
         <!--<commentGenerator-->
-                <!--type="com.asiainfo.generator.MyCommentGenerator"/>-->
+                <!--type="MyCommentGenerator"/>-->
 
         <commentGenerator>
             <property name="suppressDate" value="true" />
@@ -42,7 +42,7 @@
             targetPackage     指定生成的model生成所在的包名
             targetProject     指定在该项目下所在的路径
         -->
-        <javaModelGenerator targetPackage="com.asiainfo.db.domain"
+        <javaModelGenerator targetPackage="com.lxg.db.domain"
                             targetProject="D:\WorkSpaces\Self\smallServer\dbcommon\src\main\java">
 
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
@@ -66,7 +66,7 @@
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator targetPackage="com.asiainfo.db.mapper"
+        <javaClientGenerator targetPackage="com.lxg.db.mapper"
                              targetProject="D:\WorkSpaces\Self\smallServer\dbcommon\src\main\java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
