@@ -5,6 +5,9 @@ jdk:
   - oraclejdk8
 script:
   - mvn install:install-file -Dfile=ext/ojdbc6.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
+branches:
+  only:
+    - master
 #notifications:
 #  email:
 #    recipients:

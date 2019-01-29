@@ -2,4 +2,4 @@
 
 ## 在公网库没有找到,需要打包的本地库
 
-`mvn install:install-file -Dfile=jar包的位置 -DgroupId=jar包的groupId -DartifactId=jar包的artifactId -Dversion=jar包的version -Dpackaging=jar`
+`mvn install:install-file -Dfile=ojdbc6.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar`
