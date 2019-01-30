@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2016 sinoiov.com. All Rights Reserved.
- */
-
 package com.lxg.generator;
 
 
